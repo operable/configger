@@ -46,7 +46,7 @@ defmodule Mix.Tasks.Configger do
     [config: config, output: output] = populate_defaults(args)
     output = Path.join(output, "sys.config")
     mix_config = Mix.Config.read!(config)
-    case :file.write_file(output, :io_lib.format('~p', [mix_config])) do
+    case :file.write_file(output, :io_lib.format('~p.', [mix_config])) do
       :ok ->
         Mix.Shell.IO.info("Successfully generated #{output}")
       error ->
